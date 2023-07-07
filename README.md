@@ -15,15 +15,16 @@ API developed for contact management. The API has the following functionality:
 
 <img src="./Prints/Screenshot_2.jpg" />
 
+## Packages used in the project
+- Microsoft.EntityFrameworkCore.Design<br/>
+- Microsoft.AspNetCore.Identity.EntityFrameworkCore<br/>
+- dotnet add package Microsoft.AspNetCore.Authentication.JwtBearer<br/>
+- dotnet add package Pomelo.EntityFrameworkCore.MySql<br/>
+
 ## Execution
-Before running APA, you need to complete the following step:
+Before running the API, you need to complete the following step:
 
-### Installation of packages
-`dotnet add package Microsoft.EntityFrameworkCore.Design`<br/>
-`dotnet add package Microsoft.AspNetCore.Identity.EntityFrameworkCore`<br/>
-`dotnet add package Microsoft.AspNetCore.Authentication.JwtBearer`<br/>
-`dotnet add package Pomelo.EntityFrameworkCore.MySql`<br/>
-
+### Install Core Entity Framework Tools
 Core Entity Framework Tools for the .NET Command Line Interface. You only need to install it once on the machine,
 if you have already installed it, you don't need to run this command:
 `dotnet tool install --global dotnet-ef`<br/>
