@@ -18,8 +18,8 @@ API developed for contact management. The API has the following functionality:
 ## Packages used in the project
 - Microsoft.EntityFrameworkCore.Design<br/>
 - Microsoft.AspNetCore.Identity.EntityFrameworkCore<br/>
-- dotnet add package Microsoft.AspNetCore.Authentication.JwtBearer<br/>
-- dotnet add package Pomelo.EntityFrameworkCore.MySql<br/>
+- Microsoft.AspNetCore.Authentication.JwtBearer<br/>
+- Pomelo.EntityFrameworkCore.MySql<br/>
 
 ## Execution
 Before running the API, you need to complete the following step:
