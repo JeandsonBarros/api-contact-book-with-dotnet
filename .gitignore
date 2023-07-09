@@ -1,5 +1,6 @@
 readmin-private.md
 Migrations
+private-appsettings.Development.json
 *.swp
 *.*~
 project.lock.json

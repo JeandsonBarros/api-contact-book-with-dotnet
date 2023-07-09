@@ -64,8 +64,7 @@ builder.Services.AddAuthentication(options =>
 //Add cors policy
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("CorsPolicy", builder => builder
-        .AllowCredentials()
+    options.AddPolicy(name: "CorsPolicy", policy => policy
         .AllowAnyOrigin()
         .AllowAnyHeader()
         .AllowAnyMethod()
@@ -136,7 +135,6 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-//Use cors policy
 app.UseCors("CorsPolicy");
 
 app.UseHttpsRedirection();
