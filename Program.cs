@@ -61,6 +61,17 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
+//Add cors policy
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("CorsPolicy", builder => builder
+        .AllowCredentials()
+        .AllowAnyOrigin()
+        .AllowAnyHeader()
+        .AllowAnyMethod()
+     );
+});
+
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
@@ -124,6 +135,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+//Use cors policy
+app.UseCors("CorsPolicy");
 
 app.UseHttpsRedirection();
 
