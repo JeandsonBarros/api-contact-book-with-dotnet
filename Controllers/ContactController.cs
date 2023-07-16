@@ -47,7 +47,7 @@ namespace Controllers
                     .Take(validPagination.Size)
                     .ToList();
 
-                var TotalRecords = _applicationContext.Contact
+                var totalRecords = _applicationContext.Contact
                     .Where(contact => contact.Name
                     .Contains(name) && contact.UserAplicationId == userId)
                     .Count();
@@ -58,7 +58,7 @@ namespace Controllers
                     data: contacts,
                     page: validPagination.Page,
                     size: validPagination.Size,
-                    totalRecords: TotalRecords,
+                    totalRecords: totalRecords,
                     uri: baseUri
                 );
 
@@ -89,7 +89,7 @@ namespace Controllers
                     .Take(validPagination.Size)
                     .ToList();
 
-                var TotalRecords = _applicationContext.Contact.Where(contact => contact.UserAplicationId == userId).Count();
+                var totalRecords = _applicationContext.Contact.Where(contact => contact.UserAplicationId == userId).Count();
 
                 string baseUri = $"{Request.Scheme}://{Request.Host}/api/contact";
 
@@ -97,7 +97,7 @@ namespace Controllers
                     data: contacts,
                     page: validPagination.Page,
                     size: validPagination.Size,
-                    totalRecords: TotalRecords,
+                    totalRecords: totalRecords,
                     uri: baseUri
                 );
 
