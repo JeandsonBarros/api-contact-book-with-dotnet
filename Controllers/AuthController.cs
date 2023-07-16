@@ -229,14 +229,12 @@ namespace Integrando_APIs_NET_C__com_Entity_Framework.Controllers
                     .Take(validPagination.Size)
                     .ToList();
 
-                foreach (var user in _userManager.Users)
+                foreach (var user in users)
                 {
                     user.PasswordHash = "";
                     user.SecurityStamp = "";
                     user.ConcurrencyStamp = "";
                 }
-
-                var usersSelect = users;
 
                 var TotalRecords = _userManager.Users.Count();
 

@@ -89,7 +89,7 @@ namespace Controllers
                     .Take(validPagination.Size)
                     .ToList();
 
-                var TotalRecords = _applicationContext.Contact.Count();
+                var TotalRecords = _applicationContext.Contact.Where(contact => contact.UserAplicationId == userId).Count();
 
                 string baseUri = $"{Request.Scheme}://{Request.Host}/api/contact";
 
