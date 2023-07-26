@@ -160,7 +160,7 @@ namespace Controllers
             try
             {
                 var userId = User?.Identity?.Name;
-                var contact = _applicationContext.Contact.Where(contact => contact.Id == id && contact.UserAplicationId == userId).FirstOrDefault();
+                var contact = _applicationContext.Contact.Find(id);
 
                 if (contact == null)
                 {
@@ -241,15 +241,8 @@ namespace Controllers
         /* Function to update contact, this function is used by PUT and PATCH */
         private Contact UpdateContact(int contactId, ContactDtoViewModel contactDtoViewModel)
         {
-
-            string strModel = "^[\\d\\-+()?!]";
-            if (!System.Text.RegularExpressions.Regex.IsMatch(contactDtoViewModel.Telephone, strModel))
-            {
-                throw new BadHttpRequestException("Telephone must be well-formed");
-            }
-
             var userId = User?.Identity?.Name;
-            var contact = _applicationContext.Contact.Where(contact => contact.Id == contactId && contact.UserAplicationId == userId).FirstOrDefault();
+            var contact = _applicationContext.Contact.Find(contactId);
 
             if (contact == null)
             {
@@ -263,6 +256,12 @@ namespace Controllers
 
             if (!string.IsNullOrEmpty(contactDtoViewModel.Telephone))
             {
+                string strModel = "^[\\d\\-+()?!]";
+                if (!System.Text.RegularExpressions.Regex.IsMatch(contactDtoViewModel.Telephone, strModel))
+                {
+                    throw new BadHttpRequestException("Telephone must be well-formed");
+                }
+
                 contact.Telephone = contactDtoViewModel.Telephone;
             }
 
@@ -288,7 +287,7 @@ namespace Controllers
             try
             {
                 var userId = User?.Identity?.Name;
-                var contact = _applicationContext.Contact.Where(contact => contact.Id == id && contact.UserAplicationId == userId).FirstOrDefault();
+                var contact = _applicationContext.Contact.Find(id);
 
                 if (contact == null)
                 {

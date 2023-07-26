@@ -39,7 +39,6 @@ namespace Integrando_APIs_NET_C__com_Entity_Framework.Controllers
             _roleManager = roleManager;
             _userManager = userManager;
             _applicationContext = applicationContext;
-
         }
 
         /// <summary> User register </summary>
