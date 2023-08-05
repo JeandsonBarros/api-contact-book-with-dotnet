@@ -160,7 +160,9 @@ namespace Controllers
             try
             {
                 var userId = User?.Identity?.Name;
-                var contact = _applicationContext.Contact.Find(id);
+                var contact = _applicationContext.Contact
+                    .Where(c=> c.Id == id && c.UserAplicationId == userId)
+                    .FirstOrDefault();
 
                 if (contact == null)
                 {
@@ -242,11 +244,13 @@ namespace Controllers
         private Contact UpdateContact(int contactId, ContactDtoViewModel contactDtoViewModel)
         {
             var userId = User?.Identity?.Name;
-            var contact = _applicationContext.Contact.Find(contactId);
+            var contact = _applicationContext.Contact
+                .Where(c=> c.Id == contactId && c.UserAplicationId == userId)
+                .FirstOrDefault();
 
             if (contact == null)
             {
-                throw new NotFoundException(message: $"Contact of id {contactId} is not found");
+                throw new NotFoundException(message: $"Contact not found");
             }
 
             if (!string.IsNullOrEmpty(contactDtoViewModel.Name))
@@ -287,7 +291,9 @@ namespace Controllers
             try
             {
                 var userId = User?.Identity?.Name;
-                var contact = _applicationContext.Contact.Find(id);
+                var contact = _applicationContext.Contact
+                    .Where(c=> c.Id == id && c.UserAplicationId == userId)
+                    .FirstOrDefault();
 
                 if (contact == null)
                 {
